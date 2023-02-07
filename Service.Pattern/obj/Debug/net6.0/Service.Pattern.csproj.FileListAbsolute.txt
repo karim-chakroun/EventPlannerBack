@@ -1,0 +1,17 @@
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\bin\Debug\net6.0\Service.Pattern.deps.json
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\bin\Debug\net6.0\Service.Pattern.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\bin\Debug\net6.0\Service.Pattern.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\bin\Debug\net6.0\EventPlanner.Data.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\bin\Debug\net6.0\EventPlanner.Domain.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\bin\Debug\net6.0\EventPlanner.Data.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\bin\Debug\net6.0\EventPlanner.Domain.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.csproj.AssemblyReference.cache
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.GeneratedMSBuildEditorConfig.editorconfig
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.AssemblyInfoInputs.cache
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.AssemblyInfo.cs
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.csproj.CoreCompileInputs.cache
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.csproj.CopyComplete
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\refint\Service.Pattern.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\Service.Pattern.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\Service.Pattern\obj\Debug\net6.0\ref\Service.Pattern.dll

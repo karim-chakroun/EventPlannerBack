@@ -1,0 +1,14 @@
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\bin\Debug\net6.0\EventPlanner.Domain.deps.json
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\bin\Debug\net6.0\EventPlanner.Domain.runtimeconfig.json
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\bin\Debug\net6.0\EventPlanner.Domain.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\bin\Debug\net6.0\EventPlanner.Domain.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.csproj.AssemblyReference.cache
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.AssemblyInfoInputs.cache
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.AssemblyInfo.cs
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.csproj.CoreCompileInputs.cache
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\refint\EventPlanner.Domain.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\EventPlanner.Domain.genruntimeconfig.cache
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Domain\obj\Debug\net6.0\ref\EventPlanner.Domain.dll

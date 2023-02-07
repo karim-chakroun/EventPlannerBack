@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "nn/73Qphizuq3yh4hZMer0VHBoQI/dVlQAuFBih540A=",
+  "Source": "EventPlanner.WEBAPI",
+  "BasePath": "_content/EventPlanner.WEBAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

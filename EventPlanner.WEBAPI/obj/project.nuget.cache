@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "+78KcEVGU4jpil9fyuk8+3EB8Q28Pg3HHXlCZGLURWSqxR0udnIJTnr0NYOEpjb5yaOz3YyZRaNlZfWRZJaQBg==",
+  "success": true,
+  "projectFilePath": "D:\\PFE 2023\\Event Planner\\Backend\\EventPlanner\\EventPlanner.WEBAPI\\EventPlanner.WEBAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
