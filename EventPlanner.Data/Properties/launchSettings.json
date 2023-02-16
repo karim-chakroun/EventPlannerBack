@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "EventPlanner.Data": {
+      "commandName": "Project"
+    },
+    "Profil 1": {
+      "commandName": "Executable",
+      "executablePath": "D:\\PFE 2023\\Event Planner\\Backend\\EventPlanner\\EventPlanner.WEBAPI\\EventPlanner.WEBAPI.csproj.user"
+    }
+  }
+}

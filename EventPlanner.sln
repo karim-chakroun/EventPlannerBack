@@ -11,13 +11,16 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPlanner.Domain", "EventPlanner.Domain\EventPlanner.Domain.csproj", "{25CEA078-7C8E-427B-8B75-2FCA3E170D16}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPlanner.Service", "EventPlanner.Service\EventPlanner.Service.csproj", "{4C3CF122-341E-493B-91E7-614D68E38E14}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B079C03E-0E57-4A64-9727-839A0056B99E} = {B079C03E-0E57-4A64-9727-839A0056B99E}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service.Pattern", "Service.Pattern\Service.Pattern.csproj", "{5DE55CA7-3F22-4019-BA11-E62F71D70CB6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{B079C03E-0E57-4A64-9727-839A0056B99E} = {B079C03E-0E57-4A64-9727-839A0056B99E}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPlanner.WEBAPI", "EventPlanner.WEBAPI\EventPlanner.WEBAPI.csproj", "{D20D957C-9092-4242-8067-3C752B09A09E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPlanner.WEBAPI", "EventPlanner.WEBAPI\EventPlanner.WEBAPI.csproj", "{D20D957C-9092-4242-8067-3C752B09A09E}"
 	ProjectSection(ProjectDependencies) = postProject
 		{25CEA078-7C8E-427B-8B75-2FCA3E170D16} = {25CEA078-7C8E-427B-8B75-2FCA3E170D16}
 		{4C3CF122-341E-493B-91E7-614D68E38E14} = {4C3CF122-341E-493B-91E7-614D68E38E14}

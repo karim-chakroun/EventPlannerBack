@@ -10,3 +10,10 @@ D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\obj\Debug\ne
 D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\obj\Debug\net6.0\refint\EventPlanner.Service.dll
 D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\obj\Debug\net6.0\EventPlanner.Service.pdb
 D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\obj\Debug\net6.0\ref\EventPlanner.Service.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\bin\Debug\net6.0\EventPlanner.Data.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\bin\Debug\net6.0\EventPlanner.Domain.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\bin\Debug\net6.0\Service.Pattern.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\bin\Debug\net6.0\EventPlanner.Domain.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\bin\Debug\net6.0\Service.Pattern.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\bin\Debug\net6.0\EventPlanner.Data.pdb
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.Service\obj\Debug\net6.0\EventPlanner.Service.csproj.CopyComplete

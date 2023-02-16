@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EventPlanner.Domain\EventPlanner.Domain.csproj" />
+    <ProjectReference Include="..\Service.Pattern\Service.Pattern.csproj" />
+  </ItemGroup>
+
 </Project>

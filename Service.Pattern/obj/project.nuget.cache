@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "omfu3e2fR59qdvCAjqWJKgzJgyTVbIErkxSb5I+IUGNw9wcTElwm5VM+zeo41sVlWC6trZvTFQDxF65L1KEaEw==",
+  "dgSpecHash": "UIvDGzOvbm865SUrRuI2erL7mDJRz9Gerxy48ek84ZAROdYjNzRe2Chq3pEO9I9b68ZNyMWv82Gd7hTE3LQ7qw==",
   "success": true,
   "projectFilePath": "D:\\PFE 2023\\Event Planner\\Backend\\EventPlanner\\Service.Pattern\\Service.Pattern.csproj",
   "expectedPackageFiles": [
@@ -23,6 +23,7 @@
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.aspnetcore.identity\\2.2.0\\microsoft.aspnetcore.identity.2.2.0.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.11\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.11.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.11\\microsoft.aspnetcore.identity.ui.6.0.11.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.aspnetcore.webutilities\\2.2.0\\microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -39,7 +40,8 @@
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
-    "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\2.2.0\\microsoft.extensions.fileproviders.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\6.0.0\\microsoft.extensions.fileproviders.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\6.0.11\\microsoft.extensions.fileproviders.embedded.6.0.11.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.hosting.abstractions\\2.2.0\\microsoft.extensions.hosting.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.identity.core\\6.0.11\\microsoft.extensions.identity.core.6.0.11.nupkg.sha512",
     "C:\\Users\\karim\\.nuget\\packages\\microsoft.extensions.identity.stores\\6.0.11\\microsoft.extensions.identity.stores.6.0.11.nupkg.sha512",
