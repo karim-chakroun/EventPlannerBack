@@ -35,8 +35,10 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // POST api/<ServicesController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Services s)
         {
+            servServices.Add(s);
+            servServices.Commit();
         }
 
         // PUT api/<ServicesController>/5

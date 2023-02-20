@@ -14,17 +14,17 @@ namespace EventPlanner.Domain.Models
         public Guid IdNotification { get; set; }
         public Guid ServiceFk { get; set; }
         public Guid EventFk { get; set; }
-        public string UserFk { get; set; }
-        public string Content { get; set; }
+        public string? UserFk { get; set; }
+        public string? Content { get; set; }
         public DateTime DateNotif { get; set; }
 
         [ForeignKey("ServiceFk")]
-        public virtual Services Service { get; set; }
+        public virtual Services? Service { get; set; }
 
         [ForeignKey("EventFk")]
-        public virtual Events Event { get; set; }
+        public virtual Events? Event { get; set; }
 
         [ForeignKey("UserFk")]
-        public virtual ApplicationUser User { get; set; }
+        public virtual ApplicationUser? User { get; set; }
     }
 }
