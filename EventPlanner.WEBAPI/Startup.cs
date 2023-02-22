@@ -26,6 +26,7 @@ namespace EventPlanner.WEBAPI
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             //injection des services spécifiques
             services.AddScoped<IServServices, ServiceServ>();
+            services.AddScoped<IEventService, EventService>();
             //Inject AppSettings
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
 
