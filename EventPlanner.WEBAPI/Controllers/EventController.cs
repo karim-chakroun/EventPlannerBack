@@ -1,5 +1,6 @@
 ﻿using EventPlanner.Domain.Models;
 using EventPlanner.Service;
+using EventPlanner.WEBAPI.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,9 +21,28 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // GET: api/<EventController>
         [HttpGet]
-        public IEnumerable<Events> Get()
+        public async Task<ActionResult<IEnumerable<EventDTO>>> GetEvents()
         {
-            return eventService.GetAll();
+            var events = eventService.GetAll().Select(e => new EventDTO
+            {
+                IdEvent = e.IdEvent,
+                EventName = e.EventName,
+                DateDebut = e.DateDebut,
+                DateFin = e.DateFin,
+                Cout = e.Cout,
+                Description = e.Description,
+                Image = e.Image,
+                Adresse = e.Adresse,
+                Notifications = e.Notifications.Select(n => new NotificationDTO
+                {
+                    IdNotification = n.IdNotification,
+                    Content = n.Content,
+                    DateNotif = n.DateNotif
+                }).ToList()
+            })
+        .ToList();
+
+            return Ok(events);
         }
 
         // GET api/<EventController>/5
@@ -34,10 +54,11 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // POST api/<EventController>
         [HttpPost]
-        public void Post(Events e)
+        public Events Post(Events e)
         {
             eventService.Add(e);
             eventService.Commit();
+            return eventService.GetById(e.IdEvent);
         }
 
         // PUT api/<EventController>/5

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EventPlanner.Domain.Models
@@ -19,11 +20,12 @@ namespace EventPlanner.Domain.Models
         public DateTime DateNotif { get; set; }
 
         [ForeignKey("ServiceFk")]
+        //[JsonIgnore]
         public virtual Services? Service { get; set; }
-
+        
         [ForeignKey("EventFk")]
         public virtual Events? Event { get; set; }
-
+        //[JsonIgnore]
         [ForeignKey("UserFk")]
         public virtual ApplicationUser? User { get; set; }
     }

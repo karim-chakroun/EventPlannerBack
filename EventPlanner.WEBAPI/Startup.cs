@@ -27,6 +27,7 @@ namespace EventPlanner.WEBAPI
             //injection des services spécifiques
             services.AddScoped<IServServices, ServiceServ>();
             services.AddScoped<IEventService, EventService>();
+            services.AddScoped<INotificationService, NotificationService>();
             //Inject AppSettings
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
 

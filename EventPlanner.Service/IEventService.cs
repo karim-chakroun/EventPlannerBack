@@ -10,5 +10,6 @@ namespace EventPlanner.Service
 {
     public interface IEventService : IService<Events>
     {
+        public IEnumerable<Events> GetEventsWithNotif();
     }
 }

@@ -14,5 +14,12 @@ namespace EventPlanner.Service
         public EventService(IUnitOfWork utk) : base(utk)
         {
         }
+
+        public IEnumerable<Events> GetEventsWithNotif()
+        {
+            IDatabaseFactory factory = new DataBaseFactory();
+            IUnitOfWork utwk = new UnitOfWork(factory);
+            return utwk.getRepository<Events>().GetMany(e => e.Notifications != null).Distinct();
+        }
     }
 }
