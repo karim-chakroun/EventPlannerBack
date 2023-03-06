@@ -33,6 +33,7 @@ namespace EventPlanner.WEBAPI.Controllers
                 Description = e.Description,
                 Image = e.Image,
                 Adresse = e.Adresse,
+                UserId = e.UserId,
                 Notifications = e.Notifications.Select(n => new NotificationDTO
                 {
                     IdNotification = n.IdNotification,
@@ -43,6 +44,13 @@ namespace EventPlanner.WEBAPI.Controllers
         .ToList();
 
             return Ok(events);
+        }
+
+        [HttpGet]
+        [Route("GetUserEvents")]
+        public async Task<ActionResult<IEnumerable<EventDTO>>> GetUserEvents(string? userId)
+        {
+            return Ok(eventService.GetUserEvents(userId));
         }
 
         // GET api/<EventController>/5

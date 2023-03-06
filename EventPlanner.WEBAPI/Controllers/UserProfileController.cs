@@ -26,6 +26,7 @@ namespace EventPlanner.WEBAPI.Controllers
             var user = await _UserManager.FindByIdAsync(userId);
             return new
             {
+                user.Id,
                 user.FullName,
                 user.Email,
                 user.UserName,

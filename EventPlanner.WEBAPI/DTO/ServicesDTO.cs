@@ -10,6 +10,7 @@ namespace EventPlanner.WEBAPI.DTO
         public bool Avalable { get; set; }
         public int Promotion { get; set; }
         public string? Type { get; set; }
+        public string? Provider { get; set; }
         public float Prix { get; set; }
         public string? Image { get; set; }
         public string? Video { get; set; }
