@@ -3,7 +3,7 @@
     public class EventDTO
     {
         public Guid IdEvent { get; set; }
-        public string EventName { get; set; }
+        public string? EventName { get; set; }
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
         public float Cout { get; set; }

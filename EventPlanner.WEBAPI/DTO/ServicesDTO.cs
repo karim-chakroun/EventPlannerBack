@@ -2,7 +2,7 @@
 
 namespace EventPlanner.WEBAPI.DTO
 {
-    public class ServicesDTO
+    public class ServicesDto
     {
         public Guid IdService { get; set; }
         public string? ServiceName { get; set; }
