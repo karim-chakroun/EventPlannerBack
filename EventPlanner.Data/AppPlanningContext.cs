@@ -2,11 +2,6 @@
 using EventPlanner.Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EventPlanner.Data
 {
@@ -22,6 +17,7 @@ namespace EventPlanner.Data
 
         }
 
+        public DbSet<ExternServices> ExternServices { get; set; }
         public DbSet<Exemple> Exemples { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Events> Events { get; set; }

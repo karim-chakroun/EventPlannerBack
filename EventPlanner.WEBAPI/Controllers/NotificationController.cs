@@ -20,9 +20,9 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // GET: api/<NotificationController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Notification> Get()
         {
-            return new string[] { "value1", "value2" };
+            return notificationService.GetAll();
         }
 
         // GET api/<NotificationController>/5
@@ -34,9 +34,12 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // POST api/<NotificationController>
         [HttpPost]
-        public void Post(Notification n)
+        public void Post(List<Notification> n)
         {
-            notificationService.Add(n);
+            for (int i = 0;i < n.Count; i++)
+            {
+                notificationService.Add(n[i]);
+            }
             notificationService.Commit();
         }
 

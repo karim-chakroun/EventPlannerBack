@@ -1,6 +1,4 @@
-﻿using EventPlanner.Domain.Models;
-
-namespace EventPlanner.Service.DTO
+﻿namespace EventPlanner.Service.DTO
 {
     public class ServicesDTO
     {

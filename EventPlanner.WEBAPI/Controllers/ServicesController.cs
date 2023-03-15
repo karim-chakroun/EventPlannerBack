@@ -129,7 +129,7 @@ namespace EventPlanner.WEBAPI.Controllers
                     Datalst.Add(service);
                 }
             }
-            
+
 
             return Datalst;
         }

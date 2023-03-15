@@ -7,6 +7,7 @@
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
         public float Cout { get; set; }
+        public bool StepsDone { get; set; }
         public string Description { get; set; }
         public string Image { get; set; }
         public string Adresse { get; set; }

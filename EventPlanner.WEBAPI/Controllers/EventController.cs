@@ -21,7 +21,7 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // GET: api/<EventController>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EventDTO>>> GetEvents()
+        public ActionResult<IEnumerable<EventDTO>> GetEvents()
         {
             var events = eventService.GetAll().Select(e => new EventDTO
             {
@@ -48,16 +48,16 @@ namespace EventPlanner.WEBAPI.Controllers
 
         [HttpGet]
         [Route("GetUserEvents")]
-        public async Task<ActionResult<IEnumerable<EventDTO>>> GetUserEvents(string? userId)
+        public ActionResult<IEnumerable<EventDTO>> GetUserEvents(string? userId)
         {
             return Ok(eventService.GetUserEvents(userId));
         }
 
         // GET api/<EventController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Object Get(Guid id)
         {
-            return "value";
+            return Ok(eventService.getEventById(id)) ;
         }
 
         // POST api/<EventController>
@@ -71,8 +71,13 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // PUT api/<EventController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        //[Route("EditStepDone")]
+        public void Put(Guid id)
         {
+            var myEvent = eventService.GetById(id);
+            myEvent.StepsDone = true;
+            eventService.Update(myEvent);
+            eventService.Commit();
         }
 
         // DELETE api/<EventController>/5

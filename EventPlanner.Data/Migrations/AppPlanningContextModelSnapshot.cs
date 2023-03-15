@@ -69,12 +69,46 @@ namespace EventPlanner.Data.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("StepsDone")
+                        .HasColumnType("bit");
+
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdEvent");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("EventPlanner.Domain.Models.ExternServices", b =>
+                {
+                    b.Property<Guid>("IdExternServices")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EventFk")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("avalable")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("lien")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<float?>("prix")
+                        .HasColumnType("real");
+
+                    b.Property<string>("provider")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("serviceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdExternServices");
+
+                    b.HasIndex("EventFk");
+
+                    b.ToTable("ExternServices");
                 });
 
             modelBuilder.Entity("EventPlanner.Domain.Models.Notification", b =>
@@ -367,6 +401,17 @@ namespace EventPlanner.Data.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
+            modelBuilder.Entity("EventPlanner.Domain.Models.ExternServices", b =>
+                {
+                    b.HasOne("EventPlanner.Domain.Models.Events", "Event")
+                        .WithMany("ExternServices")
+                        .HasForeignKey("EventFk")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+                });
+
             modelBuilder.Entity("EventPlanner.Domain.Models.Notification", b =>
                 {
                     b.HasOne("EventPlanner.Domain.Models.Events", "Event")
@@ -445,6 +490,8 @@ namespace EventPlanner.Data.Migrations
 
             modelBuilder.Entity("EventPlanner.Domain.Models.Events", b =>
                 {
+                    b.Navigation("ExternServices");
+
                     b.Navigation("Notifications");
                 });
 

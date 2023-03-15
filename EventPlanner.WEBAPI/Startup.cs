@@ -4,7 +4,6 @@ using EventPlanner.Domain.Models;
 using EventPlanner.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -28,6 +27,7 @@ namespace EventPlanner.WEBAPI
             services.AddScoped<IServServices, ServiceServ>();
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<INotificationService, NotificationService>();
+            services.AddScoped<IExternServices, ServExternServices>();
             //Inject AppSettings
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
 
@@ -48,7 +48,8 @@ namespace EventPlanner.WEBAPI
                 x.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
 
 
-            }).AddJwtBearer(x => {
+            }).AddJwtBearer(x =>
+            {
                 x.RequireHttpsMetadata = false;
                 x.SaveToken = false;
                 x.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
@@ -66,7 +67,7 @@ namespace EventPlanner.WEBAPI
 
         public void Configure(IApplicationBuilder app, IHostApplicationLifetime lifetime)
         {
-            
+
 
             app.UseCors(builder =>
             builder.WithOrigins(Configuration["ApplicationSettings:Client_URL"].ToString())

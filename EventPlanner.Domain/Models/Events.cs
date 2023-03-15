@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace EventPlanner.Domain.Models
 {
@@ -15,10 +10,12 @@ namespace EventPlanner.Domain.Models
         public DateTime DateDebut { get; set; }
         public DateTime DateFin { get; set; }
         public float Cout { get; set; }
+        public bool StepsDone { get; set; }
         public string? Description { get; set; }
-        public string? Image { get; set; } 
+        public string? Image { get; set; }
         public string? Adresse { get; set; }
         public string? UserId { get; set; }
         public virtual ICollection<Notification>? Notifications { get; set; }
+        public virtual ICollection<ExternServices>? ExternServices { get; set; }
     }
 }
