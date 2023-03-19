@@ -20,9 +20,9 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // GET: api/<NotificationController>
         [HttpGet]
-        public IEnumerable<Notification> Get()
+        public ActionResult<IEnumerable<Notification>> Get(string? userId)
         {
-            return notificationService.GetAll();
+            return Ok(notificationService.GetNotifications(userId));
         }
 
         // GET api/<NotificationController>/5

@@ -14,6 +14,7 @@ namespace EventPlanner.Domain.Models
         public float Prix { get; set; }
         public string? Image { get; set; }
         public string? Video { get; set; }
+        public string? UserId { get; set; }
         public virtual ICollection<Notification>? Notifications { get; set; }
     }
 }

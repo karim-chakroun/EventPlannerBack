@@ -10,7 +10,10 @@ namespace EventPlanner.Domain.Models
         public Guid ServiceFk { get; set; }
         public Guid EventFk { get; set; }
         public string? UserFk { get; set; }
+        public string? IdRequester { get; set; }
+        public string? IdProvider { get; set; }
         public string? Content { get; set; }
+        public string? State { get; set; }
         public DateTime DateNotif { get; set; }
 
         [ForeignKey("ServiceFk")]

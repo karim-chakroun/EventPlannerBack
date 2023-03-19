@@ -126,8 +126,17 @@ namespace EventPlanner.Data.Migrations
                     b.Property<Guid>("EventFk")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("IdProvider")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdRequester")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<Guid>("ServiceFk")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserFk")
                         .HasColumnType("nvarchar(450)");
@@ -168,6 +177,9 @@ namespace EventPlanner.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Video")
