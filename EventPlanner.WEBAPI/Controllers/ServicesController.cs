@@ -1,6 +1,7 @@
 ﻿using EventPlanner.Domain.Models;
 using EventPlanner.Service;
-using EventPlanner.WEBAPI.DTO;
+//using EventPlanner.WEBAPI.DTO;
+using EventPlanner.Service.DTO;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -24,9 +25,9 @@ namespace EventPlanner.WEBAPI.Controllers
         // GET: api/<ServicesController>
         [Route("GetLatestServices")]
         [HttpGet]
-        public ActionResult<IEnumerable<ServicesDto>> GetLatestServices()
+        public ActionResult<IEnumerable<ServicesDTO>> GetLatestServices()
         {
-            var services = servServices.GetAll().Select(s => new ServicesDto
+            var services = servServices.GetAll().Select(s => new ServicesDTO
             {
                 IdService = s.IdService,
                 ServiceName = s.ServiceName,
@@ -36,8 +37,9 @@ namespace EventPlanner.WEBAPI.Controllers
                 Avalable = s.Avalable,
                 Image = s.Image,
                 Video = s.Video,
+                UserId = s.UserId,
                 Provider = "INTERN",
-                Notifications = s.Notifications.Select(n => new NotificationDTO
+                Notifications = s.Notifications.Select(n => new NotificationGetServicesDTO
                 {
                     IdNotification = n.IdNotification,
                     Content = n.Content,
@@ -52,9 +54,9 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // GET: api/<ServicesController>
         [HttpGet]
-        public ActionResult<IEnumerable<ServicesDto>> GetServices()
+        public ActionResult<IEnumerable<ServicesDTO>> GetServices()
         {
-            var services = servServices.GetAll().Select(s => new ServicesDto
+            var services = servServices.GetAll().Select(s => new ServicesDTO
             {
                 IdService = s.IdService,
                 ServiceName = s.ServiceName,
@@ -64,8 +66,9 @@ namespace EventPlanner.WEBAPI.Controllers
                 Avalable = s.Avalable,
                 Image = s.Image,
                 Video = s.Video,
+                UserId = s.UserId,
                 Provider = "INTERN",
-                Notifications = s.Notifications.Select(n => new NotificationDTO
+                Notifications = s.Notifications.Select(n => new NotificationGetServicesDTO
                 {
                     IdNotification = n.IdNotification,
                     Content = n.Content,
@@ -78,9 +81,9 @@ namespace EventPlanner.WEBAPI.Controllers
         }
         [Route("Ebay")]
         [HttpGet]
-        public async Task<List<ServicesDto>> GetEbayServices(string? search)
+        public async Task<List<ServicesDTO>> GetEbayServices(string? search)
         {
-            List<ServicesDto> Datalst = new List<ServicesDto>();
+            List<ServicesDTO> Datalst = new List<ServicesDTO>();
 
             HttpClient hc = new HttpClient();
             HttpResponseMessage result = await hc.GetAsync($"https://www.ebay.fr/sch/i.html?_from=R40&_nkw=" + search + "&_sacat=0&_ipg=240");
@@ -116,7 +119,7 @@ namespace EventPlanner.WEBAPI.Controllers
                         Console.WriteLine($"parsedPrice: {parsedPrice}");
                     }
 
-                    var service = new ServicesDto
+                    var service = new ServicesDTO
                     {
                         ServiceName = serviceName,
                         Description = description,

@@ -9,8 +9,11 @@
         public int Promotion { get; set; }
         public string? Type { get; set; }
         public float Prix { get; set; }
+        public string? Provider { get; set; }
         public string? Image { get; set; }
         public string? Video { get; set; }
-        public virtual ICollection<NotificationDTO>? Notifications { get; set; }
+        public string? UserId { get; set; }
+
+        public virtual ICollection<NotificationGetServicesDTO>? Notifications { get; set; }
     }
 }

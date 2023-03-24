@@ -1,4 +1,5 @@
 ﻿using EventPlanner.Data;
+using EventPlanner.Data.Configuration;
 using EventPlanner.Data.Infrastructures;
 using EventPlanner.Domain.Models;
 using EventPlanner.Service;
@@ -20,6 +21,8 @@ namespace EventPlanner.WEBAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddTransient<IEmailService, EmailService>();
             //Patrons
             services.AddScoped<IDatabaseFactory, DataBaseFactory>();
             services.AddTransient<IUnitOfWork, UnitOfWork>();
