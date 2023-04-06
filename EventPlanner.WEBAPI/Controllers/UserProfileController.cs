@@ -22,13 +22,15 @@ namespace EventPlanner.WEBAPI.Controllers
         {
             string userId = User.Claims.First(c => c.Type == "UserID").Value;
             var user = await _UserManager.FindByIdAsync(userId);
+            var userRole = _UserManager.GetRolesAsync(user).Result.First();
             return new
             {
                 user.Id,
                 user.FullName,
                 user.Email,
                 user.UserName,
-                user.PhoneNumber
+                user.PhoneNumber,
+                userRole
 
             };
         }

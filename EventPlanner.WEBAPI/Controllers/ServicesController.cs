@@ -93,6 +93,8 @@ namespace EventPlanner.WEBAPI.Controllers
             HtmlNodeCollection? HeaderNames = doc.DocumentNode.SelectNodes("//div[@class='s-item__title']");
             HtmlNodeCollection? Descriptions = doc.DocumentNode.SelectNodes("//div[@class='s-item__subtitle']");
             HtmlNodeCollection? Prices = doc.DocumentNode.SelectNodes("//span[@class='s-item__price']");// var cammelcase
+            HtmlNodeCollection? Image = doc.DocumentNode.SelectNodes("//div[@class='s-item__image-wrapper image-treatment']/img");
+
 
 
             if (HeaderNames != null)
@@ -102,6 +104,7 @@ namespace EventPlanner.WEBAPI.Controllers
                     var serviceName = HeaderNames[i].InnerText.Trim();
                     var description = Descriptions[i]?.InnerText?.Trim();
                     var priceText = Prices[i]?.InnerText?.Trim();
+                    var image = Image[i]?.Attributes["src"]?.Value?.Trim();
                     float price = 0;
 
                     if (!string.IsNullOrEmpty(priceText))
@@ -124,6 +127,7 @@ namespace EventPlanner.WEBAPI.Controllers
                         ServiceName = serviceName,
                         Description = description,
                         Prix = price,
+                        Image = image,
                         Provider = "EBAY",
                         Type = search
 
@@ -131,6 +135,7 @@ namespace EventPlanner.WEBAPI.Controllers
 
                     Datalst.Add(service);
                 }
+                Datalst.RemoveAt(0);
             }
 
 
