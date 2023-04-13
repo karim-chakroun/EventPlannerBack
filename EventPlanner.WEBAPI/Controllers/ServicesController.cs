@@ -142,6 +142,73 @@ namespace EventPlanner.WEBAPI.Controllers
             return Datalst;
         }
 
+        [Route("Amazon")]
+        [HttpGet]
+        public async Task<List<ServicesDTO>> GetAmazonServices(string? search)
+        {
+            List<ServicesDTO> Datalst = new List<ServicesDTO>();
+
+            HttpClient hc = new HttpClient();
+            HttpResponseMessage result = await hc.GetAsync($"https://www.amazon.fr/s?k=" + search);
+            Stream stream = await result.Content.ReadAsStreamAsync();
+            HtmlDocument doc = new HtmlDocument();
+            doc.Load(stream);
+            
+            HtmlNodeCollection? HeaderNames = doc.DocumentNode.SelectNodes("//span[@class='a-size-base-plus a-color-base a-text-normal']");
+            HtmlNodeCollection? Descriptions = doc.DocumentNode.SelectNodes("//span[@class='a-icon-alt']");
+            HtmlNodeCollection? Prices = doc.DocumentNode.SelectNodes("//span[@class='a-price-whole']");
+
+            HtmlNodeCollection? Image = doc.DocumentNode.SelectNodes("//div[@class='a-section aok-relative s-image-square-aspect']/img");
+
+            if (Prices != null)
+            {
+                for (int i = 0; i < Prices.Count; i++)
+                {
+                    var serviceName = HeaderNames[i].InnerText.Trim();
+                    var description = Descriptions[i]?.InnerText?.Trim();
+                    var priceText = Prices[i]?.InnerText?.Trim();
+                    var image = Image[i]?.Attributes["src"]?.Value?.Trim();
+                    float price = 0;
+                    //Console.WriteLine($"priceText: {serviceName}");
+
+                    if (!string.IsNullOrEmpty(priceText))
+                    {
+                        // Remove currency symbol and thousands separator if present
+                        priceText = priceText;
+
+                        Console.WriteLine($"priceText: {priceText}");
+
+                        if (float.TryParse(priceText, out float parsedPrice))
+                        {
+                            price = parsedPrice;
+                        }
+
+                        Console.WriteLine($"parsedPrice: {parsedPrice}");
+                    }
+
+
+
+                    var service = new ServicesDTO
+                    {
+                        ServiceName = serviceName,
+                        Description = description,
+                        Image = image,
+                        Prix= price,
+                
+                        Provider = "AMAZON",
+                        Type = search
+
+                    };
+
+                    Datalst.Add(service);
+                }
+               
+            }
+
+
+            return Datalst;
+        }
+
 
 
         // GET api/<ServicesController>/5
