@@ -105,3 +105,4 @@ D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.WEBAPI\bin\Debug\net
 D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.WEBAPI\bin\Debug\net6.0\EventPlanner.Service.pdb
 D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.WEBAPI\bin\Debug\net6.0\Service.Pattern.pdb
 D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.WEBAPI\bin\Debug\net6.0\HtmlAgilityPack.NetCore.dll
+D:\PFE 2023\Event Planner\Backend\EventPlanner\EventPlanner.WEBAPI\bin\Debug\net6.0\Newtonsoft.Json.dll

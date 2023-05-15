@@ -28,24 +28,29 @@ namespace EventPlanner.Service
         {
             try
             {
+                emailData.EmailBody = "<html><body><h1>Hello</h1><p>" + emailData.EmailBody + "</p><p>Best regards,</p></body></html>";
 
+                MailMessage mail = new MailMessage();
+                mail.From = new MailAddress(_emailSettings.EmailId);
+                mail.To.Add(new MailAddress(emailData.EmailToId));
+                mail.Subject = emailData.EmailSubject;
+                mail.IsBodyHtml = true; // Set this property to true to send an HTML email
+                mail.Body = emailData.EmailBody;
 
-                var smtpClient = new SmtpClient("smtp.gmail.com")
-                {
-                    Port = 587,
-                    Credentials = new NetworkCredential(_emailSettings.EmailId, _emailSettings.Password),
-                    EnableSsl = true,
-                };
-
-                smtpClient.Send("eventplanner811@gmail.com", emailData.EmailToId, emailData.EmailSubject, emailData.EmailBody);
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(_emailSettings.EmailId, _emailSettings.Password);
+                smtpClient.EnableSsl = true;
+                smtpClient.Send(mail);
 
                 return true;
             }
             catch (Exception ex)
             {
-                //Log Exception Details
+                // Log Exception Details
                 return false;
             }
         }
+
     }
 }

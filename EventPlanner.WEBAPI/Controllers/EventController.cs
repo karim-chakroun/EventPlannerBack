@@ -72,9 +72,11 @@ namespace EventPlanner.WEBAPI.Controllers
         // PUT api/<EventController>/5
         [HttpPut("{id}")]
         //[Route("EditStepDone")]
-        public void Put(Guid id)
+        public void Put(Guid id,Events? e)
         {
             var myEvent = eventService.GetById(id);
+            myEvent.Adresse = e.Adresse;
+
             myEvent.StepsDone = true;
             eventService.Update(myEvent);
             eventService.Commit();

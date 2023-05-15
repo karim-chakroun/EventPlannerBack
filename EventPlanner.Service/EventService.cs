@@ -56,11 +56,33 @@ namespace EventPlanner.Service
                 events.Cout,
                 events.Description,
                 events.StepsDone,
-                Notifications = events.Notifications.Select(n => new NotificationDTO
+                events.Adresse,
+                ExternServices = events.ExternServices.Select(n => new ExternServices
+                {
+                    serviceName = n.serviceName,
+                    prix=n.prix,
+                    lien=n.lien,
+                    provider=n.provider,
+                    
+
+                }).ToList(),
+                Notifications = events.Notifications.Select(n => new GetNotificationsDTO
                 {
                     IdNotification = n.IdNotification,
                     Content = n.Content,
-                    DateNotif = n.DateNotif
+                    DateNotif = n.DateNotif,
+                    Service = new ServiceGetNotificationDTO
+                    {
+                        ServiceName = n.Service.ServiceName,
+                        Description= n.Service.Description,
+                        Prix=n.Service.Prix,
+                        Image=n.Service.Image,
+                        Promotion=n.Service.Promotion,
+                        Type=n.Service.Type,
+
+                        
+                    },
+
                 }).ToList()
 
             };

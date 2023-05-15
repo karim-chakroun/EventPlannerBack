@@ -21,6 +21,8 @@ namespace EventPlanner.WEBAPI
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSignalR();
+
             services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IEmailService, EmailService>();
             //Patrons

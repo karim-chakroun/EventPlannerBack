@@ -22,6 +22,7 @@ namespace EventPlanner.Service
                     IdNotification = n.IdNotification,
                     Content = n.Content,
                     DateNotif = n.DateNotif,
+                    Closed = n.Closed,
                     User = new UserDTO
                     {
                         Id = n.User?.Id,

@@ -49,14 +49,18 @@ namespace EventPlanner.WEBAPI.Controllers
         {
             var myCommand = notificationService.GetById(id);
             myCommand.Content = notification.Content;
+            myCommand.Closed = notification.Closed;
             notificationService.Update(myCommand);
             notificationService.Commit();
         }
 
         // DELETE api/<NotificationController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            //notificationService.GetById(id);
+            notificationService.Delete(notificationService.GetById(id));
+            notificationService.Commit();
         }
     }
 }
