@@ -237,5 +237,19 @@ namespace EventPlanner.WEBAPI.Controllers
         public void Delete(int id)
         {
         }
+
+        [HttpGet]
+        [Route("stats")]
+        public async Task<Object> getstats(string userId)
+        {
+            var services = servServices.GetAll().Where(s => s.UserId == userId).Select(s => new stats
+            {
+               name=s.ServiceName,
+               value=s.Notifications.Count()
+            })
+        .ToList();
+
+            return Ok(services);
+        }
     }
 }

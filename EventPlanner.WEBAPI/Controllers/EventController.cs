@@ -76,6 +76,7 @@ namespace EventPlanner.WEBAPI.Controllers
         {
             var myEvent = eventService.GetById(id);
             myEvent.Adresse = e.Adresse;
+            myEvent.Cout = e.Cout;
 
             myEvent.StepsDone = true;
             eventService.Update(myEvent);

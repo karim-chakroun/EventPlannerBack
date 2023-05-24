@@ -25,4 +25,8 @@
     <ProjectReference Include="..\EventPlanner.Service\EventPlanner.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\Images\" />
+  </ItemGroup>
+
 </Project>
