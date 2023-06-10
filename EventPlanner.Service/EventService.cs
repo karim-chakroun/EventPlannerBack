@@ -57,6 +57,7 @@ namespace EventPlanner.Service
                 events.Description,
                 events.StepsDone,
                 events.Adresse,
+                events.Image,
                 ExternServices = events.ExternServices.Select(n => new ExternServices
                 {
                     serviceName = n.serviceName,

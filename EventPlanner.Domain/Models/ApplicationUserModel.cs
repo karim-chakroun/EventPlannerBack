@@ -12,5 +12,6 @@ namespace EventPlanner.Domain.Models
         [AllowNull]
         public string? Role { get; set; }
         public string? Adresse { get; set; }
+        public string? Image { get; set; }
     }
 }

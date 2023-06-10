@@ -413,6 +413,9 @@ namespace EventPlanner.Data.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
