@@ -11,5 +11,6 @@ namespace EventPlanner.Domain.Models
         public virtual ICollection<Notification>? Notifications { get; set; }
         public string? Adresse { get; set; }
         public string? Image { get; set; }
+        public virtual ICollection<Feedback>? Feedbacks { get; set; }
     }
 }

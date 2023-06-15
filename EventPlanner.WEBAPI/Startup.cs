@@ -33,6 +33,7 @@ namespace EventPlanner.WEBAPI
             services.AddScoped<IEventService, EventService>();
             services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<IExternServices, ServExternServices>();
+            services.AddScoped<IFeedbackService, FeedbackServices>();
             //Inject AppSettings
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
 

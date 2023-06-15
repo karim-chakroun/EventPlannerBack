@@ -111,6 +111,42 @@ namespace EventPlanner.Data.Migrations
                     b.ToTable("ExternServices");
                 });
 
+            modelBuilder.Entity("EventPlanner.Domain.Models.Feedback", b =>
+                {
+                    b.Property<Guid>("IdFeedback")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("DatePost")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Fullname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdPoster")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdReceiver")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdFeedback");
+
+                    b.HasIndex("IdReceiver");
+
+                    b.ToTable("Feedback");
+                });
+
             modelBuilder.Entity("EventPlanner.Domain.Models.Notification", b =>
                 {
                     b.Property<Guid>("IdNotification")
@@ -430,6 +466,17 @@ namespace EventPlanner.Data.Migrations
                     b.Navigation("Event");
                 });
 
+            modelBuilder.Entity("EventPlanner.Domain.Models.Feedback", b =>
+                {
+                    b.HasOne("EventPlanner.Domain.Models.ApplicationUser", "Receiver")
+                        .WithMany("Feedbacks")
+                        .HasForeignKey("IdReceiver")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Receiver");
+                });
+
             modelBuilder.Entity("EventPlanner.Domain.Models.Notification", b =>
                 {
                     b.HasOne("EventPlanner.Domain.Models.Events", "Event")
@@ -520,6 +567,8 @@ namespace EventPlanner.Data.Migrations
 
             modelBuilder.Entity("EventPlanner.Domain.Models.ApplicationUser", b =>
                 {
+                    b.Navigation("Feedbacks");
+
                     b.Navigation("Notifications");
                 });
 #pragma warning restore 612, 618

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EventPlanner.WEBAPI.Controllers
 {
@@ -36,10 +37,88 @@ namespace EventPlanner.WEBAPI.Controllers
                 user.UserName,
                 user.PhoneNumber,
                 user.Image,
+                Feedbacks = user.Feedbacks.Select(f => new Feedback
+                {
+                    IdFeedback = f.IdFeedback,
+                    DatePost = f.DatePost,
+                    IdPoster = f.IdPoster,
+                    Description = f.Description,
+                    IdReceiver = f.IdReceiver,
+                    
+
+
+
+
+                }).ToList(),
                 userRole
 
             };
         }
+
+        [HttpGet("{id}")]
+        // GET: /api/UserProfile/{id}
+        public async Task<IActionResult> GetUserProfileById(string id)
+        {
+            var user = await _UserManager.FindByIdAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var userRole = await _UserManager.GetRolesAsync(user);
+
+            var userProfile = new
+            {
+                user.Id,
+                user.FullName,
+                user.Email,
+                user.UserName,
+                user.PhoneNumber,
+                user.Image,
+                Feedbacks = user.Feedbacks.Select(f => new Feedback
+                {
+                    IdFeedback = f.IdFeedback,
+                    DatePost = f.DatePost,
+                    IdPoster = f.IdPoster,
+                    Description = f.Description,
+                    IdReceiver = f.IdReceiver,
+                    Fullname= f.Fullname,
+                    Image= f.Image,
+
+
+
+
+
+                }).ToList(),
+                userRole
+            };
+
+            return Ok(userProfile);
+        }
+
+        [HttpGet]
+        [Route("GetUsersByUsername")]
+        // GET: /api/Users?username={username}
+        public async Task<IActionResult> GetUsersByUsername(string username)
+        {
+            var users = await _UserManager.Users
+                .Where(u => u.UserName.Contains(username))
+                .ToListAsync();
+
+            var userProfiles = users.Select(user => new
+            {
+                user.Id,
+                user.FullName,
+                user.Email,
+                user.UserName,
+                user.PhoneNumber,
+                user.Image,
+            });
+
+            return Ok(userProfiles);
+        }
+
 
         [HttpGet]
         [Authorize(Roles = "Agent")]
