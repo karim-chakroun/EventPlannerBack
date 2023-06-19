@@ -13,6 +13,7 @@ namespace EventPlanner.Domain.Models
         public string? IdRequester { get; set; }
         public string? IdProvider { get; set; }
         public string? Content { get; set; }
+        public int? Quantity { get; set; }
         public string? State { get; set; }
         public bool? Closed { get; set; }
         public DateTime DateNotif { get; set; }

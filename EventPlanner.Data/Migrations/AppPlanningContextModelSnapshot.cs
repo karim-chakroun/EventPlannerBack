@@ -89,6 +89,9 @@ namespace EventPlanner.Data.Migrations
                     b.Property<Guid>("EventFk")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int");
+
                     b.Property<bool>("avalable")
                         .HasColumnType("bit");
 
@@ -125,7 +128,6 @@ namespace EventPlanner.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Fullname")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IdPoster")
@@ -137,7 +139,6 @@ namespace EventPlanner.Data.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdFeedback");
@@ -170,6 +171,9 @@ namespace EventPlanner.Data.Migrations
 
                     b.Property<string>("IdRequester")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Quantity")
+                        .HasColumnType("int");
 
                     b.Property<Guid>("ServiceFk")
                         .HasColumnType("uniqueidentifier");

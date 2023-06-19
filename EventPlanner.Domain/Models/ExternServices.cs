@@ -16,6 +16,7 @@ namespace EventPlanner.Domain.Models
         public string? lien { get; set; }
         public string? provider { get; set; }
         public float? prix { get; set; }
+        public int? Quantity { get; set; }
         public bool avalable { get; set; }
         public Guid EventFk { get; set; }
         [ForeignKey("EventFk")]
