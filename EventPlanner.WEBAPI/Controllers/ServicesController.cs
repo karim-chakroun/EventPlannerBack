@@ -54,6 +54,36 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // GET: api/<ServicesController>
         [HttpGet]
+        [Route("GetUserServices")]
+        public ActionResult<IEnumerable<ServicesDTO>> GetUserServices(string userId)
+        {
+            var services = servServices.GetAll().Where(s => s.UserId == userId).Select(s => new ServicesDTO
+            {
+                IdService = s.IdService,
+                ServiceName = s.ServiceName,
+                Prix = s.Prix,
+                Description = s.Description,
+                Promotion = s.Promotion,
+                Avalable = s.Avalable,
+                Type = s.Type,
+                Image = s.Image,
+                Video = s.Video,
+                UserId = s.UserId,
+                Provider = "INTERN",
+                Notifications = s.Notifications.Select(n => new NotificationGetServicesDTO
+                {
+                    IdNotification = n.IdNotification,
+                    Content = n.Content,
+                    DateNotif = n.DateNotif
+                }).ToList()
+            })
+        .ToList();
+
+            return Ok(services);
+        }
+
+        // GET: api/<ServicesController>
+        [HttpGet]
         public ActionResult<IEnumerable<ServicesDTO>> GetServices()
         {
             var services = servServices.GetAll().Select(s => new ServicesDTO
@@ -64,6 +94,7 @@ namespace EventPlanner.WEBAPI.Controllers
                 Description = s.Description,
                 Promotion = s.Promotion,
                 Avalable = s.Avalable,
+                Type= s.Type,
                 Image = s.Image,
                 Video = s.Video,
                 UserId = s.UserId,
@@ -107,10 +138,14 @@ namespace EventPlanner.WEBAPI.Controllers
                     var image = Image[i]?.Attributes["src"]?.Value?.Trim();
                     float price = 0;
 
+                    //replaced
+                    string substringToRemove = "<!--F#f_0-->";
+                    string substringEndToRemove = "<!--F/-->";
+
                     if (!string.IsNullOrEmpty(priceText))
                     {
                         // Remove currency symbol and thousands separator if present
-                        priceText = priceText.Replace("€", "").Replace(".", "").Replace("EUR", "").Replace("à", "");
+                        priceText = priceText.Replace("€", "").Replace(".", "").Replace("EUR", "").Replace("à", "").Replace(substringToRemove, "").Replace(substringEndToRemove, ""); ;
 
                         Console.WriteLine($"priceText: {priceText}");
 
@@ -118,6 +153,9 @@ namespace EventPlanner.WEBAPI.Controllers
                         {
                             price = parsedPrice;
                         }
+                        
+                        serviceName = serviceName.Replace(substringToRemove, "").Replace(substringEndToRemove,"");
+                        description = description.Replace(substringToRemove, "").Replace(substringEndToRemove, "");
 
                         Console.WriteLine($"parsedPrice: {parsedPrice}");
                     }
@@ -234,8 +272,11 @@ namespace EventPlanner.WEBAPI.Controllers
 
         // DELETE api/<ServicesController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
+            ;
+            servServices.Delete(servServices.GetById(id));
+            servServices.Commit();
         }
 
         [HttpGet]

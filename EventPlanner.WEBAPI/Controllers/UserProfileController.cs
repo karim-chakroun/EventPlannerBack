@@ -35,6 +35,9 @@ namespace EventPlanner.WEBAPI.Controllers
                 user.FullName,
                 user.Email,
                 user.UserName,
+                user.Adresse,
+                user.AboutMe,
+                user.birthday,
                 user.PhoneNumber,
                 user.Image,
                 Feedbacks = user.Feedbacks.Select(f => new Feedback
@@ -74,6 +77,9 @@ namespace EventPlanner.WEBAPI.Controllers
                 user.FullName,
                 user.Email,
                 user.UserName,
+                user.AboutMe,
+                user.birthday,
+                user.Adresse,
                 user.PhoneNumber,
                 user.Image,
                 Feedbacks = user.Feedbacks.Select(f => new Feedback
@@ -103,7 +109,7 @@ namespace EventPlanner.WEBAPI.Controllers
         public async Task<IActionResult> GetUsersByUsername(string username)
         {
             var users = await _UserManager.Users
-                .Where(u => u.UserName.Contains(username))
+                .Where(u => u.FullName.Contains(username))
                 .ToListAsync();
 
             var userProfiles = users.Select(user => new
@@ -180,6 +186,55 @@ namespace EventPlanner.WEBAPI.Controllers
             
 
             user.Image = model.Image;
+
+            // Update the user using the UserManager
+            var result = await _UserManager.UpdateAsync(user);
+
+            if (result.Succeeded)
+            {
+                return Ok();
+            }
+            else
+            {
+                // If the update failed, return the errors to the client
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError("", error.Description);
+                }
+                return BadRequest(ModelState);
+            }
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("EditUser")]
+        // Put: /api/UserProfile
+        public async Task<IActionResult> EditUser(ApplicationUserModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            string userId = User.Claims.First(c => c.Type == "UserID").Value;
+            var user = await _UserManager.FindByIdAsync(userId);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Update the user's profile properties
+
+
+            user.FullName = model.FullName;
+            user.Email=model.Email;
+            user.UserName = model.UserName;
+            user.AboutMe=model.AboutMe;
+            user.birthday = model.birthday;
+            user.PhoneNumber = model.PhoneNumber;
+            user.Adresse = model.Adresse;
+
 
             // Update the user using the UserManager
             var result = await _UserManager.UpdateAsync(user);

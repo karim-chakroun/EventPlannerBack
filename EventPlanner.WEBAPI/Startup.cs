@@ -34,6 +34,8 @@ namespace EventPlanner.WEBAPI
             services.AddScoped<INotificationService, NotificationService>();
             services.AddScoped<IExternServices, ServExternServices>();
             services.AddScoped<IFeedbackService, FeedbackServices>();
+            services.AddScoped<IParticipationService, ParticipationService>();
+            services.AddScoped<IMessageServices, MessageServices>();
             //Inject AppSettings
             services.Configure<ApplicationSettings>(Configuration.GetSection("ApplicationSettings"));
 
@@ -93,6 +95,7 @@ namespace EventPlanner.WEBAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<ChatHub>("/chatHub/{chatId}");
             });
             // ...
         }

@@ -84,6 +84,20 @@ namespace EventPlanner.WEBAPI.Controllers
             eventService.Commit();
         }
 
+        [HttpGet]
+        [Route("stats")]
+        public async Task<Object> getstats(string userId)
+        {
+            var services = eventService.GetAll().Where(e => e.UserId == userId).Select(e => new stats
+            {
+                name = e.EventName,
+                value = e.Participation.Count()
+            })
+        .ToList();
+
+            return Ok(services);
+        }
+
         // DELETE api/<EventController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)

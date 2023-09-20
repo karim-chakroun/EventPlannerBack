@@ -17,5 +17,6 @@ namespace EventPlanner.Domain.Models
         public string? UserId { get; set; }
         public virtual ICollection<Notification>? Notifications { get; set; }
         public virtual ICollection<ExternServices>? ExternServices { get; set; }
+        public virtual ICollection<Participation>? Participation { get; set; }
     }
 }

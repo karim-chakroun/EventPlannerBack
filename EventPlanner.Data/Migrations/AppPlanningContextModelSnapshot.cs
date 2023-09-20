@@ -148,6 +148,60 @@ namespace EventPlanner.Data.Migrations
                     b.ToTable("Feedback");
                 });
 
+            modelBuilder.Entity("EventPlanner.Domain.Models.Message", b =>
+                {
+                    b.Property<Guid>("IdMessage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Contenu")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DateMessage")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid?>("IdMessages")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdMessage");
+
+                    b.HasIndex("IdMessages");
+
+                    b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("EventPlanner.Domain.Models.Messages", b =>
+                {
+                    b.Property<Guid>("MessageId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ReceiverId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ReceiverName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SenderName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("TimeSent")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("MessageId");
+
+                    b.HasIndex("ReceiverId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("EventPlanner.Domain.Models.Notification", b =>
                 {
                     b.Property<Guid>("IdNotification")
@@ -193,6 +247,31 @@ namespace EventPlanner.Data.Migrations
                     b.HasIndex("UserFk");
 
                     b.ToTable("Notification");
+                });
+
+            modelBuilder.Entity("EventPlanner.Domain.Models.Participation", b =>
+                {
+                    b.Property<Guid>("IdParticipation")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("IdEvent")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("IdUser")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdParticipation");
+
+                    b.HasIndex("IdEvent");
+
+                    b.ToTable("Participation");
                 });
 
             modelBuilder.Entity("EventPlanner.Domain.Models.Services", b =>
@@ -447,6 +526,9 @@ namespace EventPlanner.Data.Migrations
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
+                    b.Property<string>("AboutMe")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Adresse")
                         .HasColumnType("nvarchar(max)");
 
@@ -455,6 +537,9 @@ namespace EventPlanner.Data.Migrations
 
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("birthday")
+                        .HasColumnType("datetime2");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
@@ -477,6 +562,24 @@ namespace EventPlanner.Data.Migrations
                         .HasForeignKey("IdReceiver")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Receiver");
+                });
+
+            modelBuilder.Entity("EventPlanner.Domain.Models.Message", b =>
+                {
+                    b.HasOne("EventPlanner.Domain.Models.Messages", "Messages")
+                        .WithMany("Message")
+                        .HasForeignKey("IdMessages");
+
+                    b.Navigation("Messages");
+                });
+
+            modelBuilder.Entity("EventPlanner.Domain.Models.Messages", b =>
+                {
+                    b.HasOne("EventPlanner.Domain.Models.ApplicationUser", "Receiver")
+                        .WithMany("Messages")
+                        .HasForeignKey("ReceiverId");
 
                     b.Navigation("Receiver");
                 });
@@ -504,6 +607,15 @@ namespace EventPlanner.Data.Migrations
                     b.Navigation("Service");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("EventPlanner.Domain.Models.Participation", b =>
+                {
+                    b.HasOne("EventPlanner.Domain.Models.Events", "Event")
+                        .WithMany("Participation")
+                        .HasForeignKey("IdEvent");
+
+                    b.Navigation("Event");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -562,6 +674,13 @@ namespace EventPlanner.Data.Migrations
                     b.Navigation("ExternServices");
 
                     b.Navigation("Notifications");
+
+                    b.Navigation("Participation");
+                });
+
+            modelBuilder.Entity("EventPlanner.Domain.Models.Messages", b =>
+                {
+                    b.Navigation("Message");
                 });
 
             modelBuilder.Entity("EventPlanner.Domain.Models.Services", b =>
@@ -572,6 +691,8 @@ namespace EventPlanner.Data.Migrations
             modelBuilder.Entity("EventPlanner.Domain.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Feedbacks");
+
+                    b.Navigation("Messages");
 
                     b.Navigation("Notifications");
                 });

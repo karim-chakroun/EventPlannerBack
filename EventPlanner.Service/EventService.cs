@@ -46,6 +46,7 @@ namespace EventPlanner.Service
             IUnitOfWork utwk = new UnitOfWork(factory);
 
             var events =  utwk.getRepository<Events>().GetById(id);
+            int participantNumber = 0;
 
             return new
             {
@@ -58,6 +59,17 @@ namespace EventPlanner.Service
                 events.StepsDone,
                 events.Adresse,
                 events.Image,
+                participantNumber = events.Participation.ToList().Count() + participantNumber,
+                Participation = events.Participation.Select(p => new ParticipationDTO
+                {
+                    IdParticipation= p.IdParticipation,
+                    IdEvent = p.IdEvent,
+                    Image = p.Image,
+                    IdUser = p.IdUser,
+                    UserName= p.UserName,
+
+
+                }).ToList(),
                 ExternServices = events.ExternServices.Select(n => new ExternServices
                 {
                     serviceName = n.serviceName,
@@ -82,6 +94,15 @@ namespace EventPlanner.Service
                         Type=n.Service.Type,
 
                         
+                    },
+                    User = new UserDTO
+                    {
+                  
+                        FullName=n.User.UserName,
+                        Image = n.User.Image,
+                        Id=n.User.Id,
+
+
                     },
 
                 }).ToList()

@@ -28,7 +28,7 @@ namespace EventPlanner.Service
         {
             try
             {
-                emailData.EmailBody = "<html><body><h1>Hello</h1><p>" + emailData.EmailBody + "</p><p>Best regards,</p></body></html>";
+                emailData.EmailBody = "<html><body>Hello,<p>" + emailData.EmailBody + "</p><p>Best regards,<br> <img src='https://i0.wp.com/www.recruter.tn/wp-content/uploads/2018/03/logo-FinlogiK-b.gif?fit=300%2C79&ssl=1'></p></body></html>";
 
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(_emailSettings.EmailId);

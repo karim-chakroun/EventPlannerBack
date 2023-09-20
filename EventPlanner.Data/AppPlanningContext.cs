@@ -24,6 +24,8 @@ namespace EventPlanner.Data
         public DbSet<Services> Services { get; set; }
         public DbSet<Notification> Notification { get; set; }
         public DbSet<Feedback> Feedback { get; set; }
+        public DbSet<Messages> Messages { get; set; }
+        public DbSet<Message> Message { get; set; }
 
         //public DbSet<Exemple> Exemples { get; set; }
 

@@ -17,6 +17,9 @@ namespace EventPlanner.WEBAPI.Controllers
         private SignInManager<ApplicationUser> _SignInManager;
         private readonly ApplicationSettings _appSettings;
 
+        public UserManager<ApplicationUser> UserManager { get; }
+        public SignInManager<ApplicationUser> SignInManager { get; }
+
         public ApplicationUserController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<ApplicationSettings> appSettings)
         {
             _UserManager = userManager;
